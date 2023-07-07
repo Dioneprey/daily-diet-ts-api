@@ -23,5 +23,5 @@ model Meal {
     NM_MEA String
     TX_DSC String
     DH_CAD DateTime @default(now())
-    TF_DIE Boolean
+    TF_DIE String
 }

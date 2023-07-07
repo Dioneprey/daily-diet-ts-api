@@ -16,11 +16,14 @@ export const authMiddleware = (
     }
 
     const decoded = jwt.verify(token, secret)
-    console.log(decoded)
+
+    if (!decoded) {
+      return reply.status(401).send()
+    }
 
     next()
   } catch (error) {
     console.log(error)
-    reply.status(401).send({ msg: 'Invalid token' })
+    reply.status(401).send({ msg: 'Invalid Token!' })
   }
 }
